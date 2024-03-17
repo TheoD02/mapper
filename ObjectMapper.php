@@ -83,7 +83,7 @@ final class ObjectMapper implements ObjectMapperInterface
         }
 
         foreach ($refl->getProperties() as $property) {
-            if ($property->isStatic()) {
+            if ($property->isStatic() || !$property->isInitialized($object)) {
                 continue;
             }
 
